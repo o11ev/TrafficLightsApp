@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet var greenLightView: UIView!
     @IBOutlet var startButton: UIButton!
     
+    // текущий статус светофора
+    var currentLightNumber = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,13 +31,11 @@ class ViewController: UIViewController {
         greenLightView.layer.cornerRadius = yellowLightView.frame.size.width / 2
     }
     
-    var current: Int = -1
-    
     @IBAction func startButtonPressed() {
         startButton.setTitle("NEXT", for: .normal)
-        current += 1
+        currentLightNumber += 1
         
-        switch current {
+        switch currentLightNumber {
         case 0:
             greenLightView.alpha = 0.3
             redLightView.alpha = 1
@@ -46,15 +46,12 @@ class ViewController: UIViewController {
             yellowLightView.alpha = 0.3
             greenLightView.alpha = 1
         default:
-            print("")
+            print("Something went wrong")
         }
         
-        
-        if current == 2 {
-            current = -1
+        if currentLightNumber == 2 {
+            currentLightNumber = -1
         }
-        
-        
     }
     
 }
