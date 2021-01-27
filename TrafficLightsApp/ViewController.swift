@@ -8,7 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet var redLightView: UIView!
     @IBOutlet var yellowLightView: UIView!
     @IBOutlet var greenLightView: UIView!
@@ -28,12 +28,33 @@ class ViewController: UIViewController {
         yellowLightView.layer.cornerRadius = yellowLightView.frame.size.width / 2
         greenLightView.layer.cornerRadius = yellowLightView.frame.size.width / 2
     }
-
+    
+    var current: Int = -1
+    
     @IBAction func startButtonPressed() {
         startButton.setTitle("NEXT", for: .normal)
+        current += 1
         
-        redLightView.alpha = 1
-
+        switch current {
+        case 0:
+            greenLightView.alpha = 0.3
+            redLightView.alpha = 1
+        case 1:
+            redLightView.alpha = 0.3
+            yellowLightView.alpha = 1
+        case 2:
+            yellowLightView.alpha = 0.3
+            greenLightView.alpha = 1
+        default:
+            print("")
+        }
+        
+        
+        if current == 2 {
+            current = -1
+        }
+        
+        
     }
     
 }
