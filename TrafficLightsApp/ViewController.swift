@@ -21,17 +21,19 @@ class ViewController: UIViewController {
         redLightView.alpha = 0.3
         yellowLightView.alpha = 0.3
         greenLightView.alpha = 0.3
+        
         startButton.layer.cornerRadius = 10
         
         redLightView.layer.cornerRadius = redLightView.frame.size.width / 2
-        
         yellowLightView.layer.cornerRadius = yellowLightView.frame.size.width / 2
-        
         greenLightView.layer.cornerRadius = yellowLightView.frame.size.width / 2
-        
     }
 
     @IBAction func startButtonPressed() {
+        startButton.setTitle("NEXT", for: .normal)
+        
+        redLightView.alpha = 1
+
     }
     
 }
